@@ -102,6 +102,7 @@ class TicTacToe():
 
                 if self.check_winner() != False:
                     continue_play = False
+                    break
 
                 cpu_pos = self.computer()
                 cpu_idx = self.moves.index(cpu_pos)
@@ -113,6 +114,7 @@ class TicTacToe():
 
                 if self.check_winner() != False:
                     continue_play = False
+                    break
 
                 for row in self.board:
                     print(row)
@@ -150,6 +152,7 @@ class TicTacToe():
 
                 if self.check_winner() != False:
                     continue_play = False
+                    break
 
                 for row in self.board:
                     print(row)
