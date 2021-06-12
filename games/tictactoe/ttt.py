@@ -12,14 +12,21 @@ class TicTacToe():
         self.board = self.generate_board()
         self.moves = self.generate_available_moves()
 
-        if self.game_option == 1:
-            # play computer
-            pass
+        self.move_counter = 0
+        self.max_moves = len(self.moves)
 
     def generate_board(self):
+        '''
+        This function will generate an NxN matrix corresponding to the board_size
+        the user specified
+        '''
         return np.zeros((self.board_size, self.board_size))
 
     def generate_available_moves(self):
+        '''
+        This function will find all the legal moves availalbe for the user and computer
+        to make given the board size
+        '''
         n = len(self.board)
         moves = []
         for i in range(1, n+1):
@@ -28,6 +35,13 @@ class TicTacToe():
         return moves
 
     def check_winner(self):
+        '''
+        This function will determine whether a player is a winner or not. It will be ran
+        after every move is made to know whether the game should be continued to play.
+
+        A winner is determined if they have an entire row, column or the diagonal(s)
+        filled with their value.
+        '''
         n = self.board_size
         winning_x_vals = set([self.X] * n)
         winning_o_vals = set([self.O] * n)
@@ -49,9 +63,28 @@ class TicTacToe():
         if (d == winning_x_vals) | (d == winning_o_vals):
             print("Winner")
             return
+
+        d2 = set(np.diag(np.fliplr(self.board)))
+        if (d2 == winning_x_vals) | (d2 == winning_o_vals):
+            print("Winner")
+            return
+
+        if self.move_counter == self.max_moves:
+            print("Draw")
+            return
+
         return False
 
     def play(self):
+        '''
+        This function will initiate the game play of tick tac toe. If this is the first options
+        the player will verse a computer, if the second option is chosen then it will play against
+        another player.
+        '''
+
+        for row in self.board:
+            print(row)
+
         if self.game_option == 1:
             # versus computer
             continue_play = True
@@ -59,12 +92,13 @@ class TicTacToe():
                 pos = list(eval(input("Please enter in a list, the coordinate corresponding to your move: ")))
                 if pos not in self.moves:
                     pos = list(eval(input("Please enter a legal move: ")))
-                print(type(pos), pos)
+
                 idx = self.moves.index(pos)
                 del self.moves[idx]
 
                 #update board
                 self.board[pos[0] - 1][pos[1] - 1] = self.X
+                self.move_counter += 1
 
                 if self.check_winner() != False:
                     continue_play = False
@@ -75,33 +109,76 @@ class TicTacToe():
 
                 #update board
                 self.board[cpu_pos[0] - 1][cpu_pos[1] - 1] = self.O
+                self.move_counter += 1
 
                 if self.check_winner() != False:
-                    print(self.check_winner())
+                    continue_play = False
+
+                for row in self.board:
+                    print(row)
+        else:
+            # versus player
+            continue_play = True
+            while continue_play:
+                p1_pos = list(eval(input("Player 1, enter the coordinate corresponding to your move: ")))
+                if p1_pos not in self.moves:
+                    p1_pos = list(eval(input("Please enter a legal move: ")))
+
+                p1_idx = self.moves.index(p1_pos)
+                del self.moves[p1_idx]
+
+                # update board
+                self.board[p1_pos[0] - 1][p1_pos[1] - 1] = self.X
+                self.move_counter += 1
+
+                if self.check_winner() != False:
+                    continue_play = False
+
+                for row in self.board:
+                    print(row)
+
+                p2_pos = list(eval(input("Player 2, enter the coordinate corresponding to your move: ")))
+                if p2_pos not in self.moves:
+                    p2_pos = list(eval(input("Please enter a legal move: ")))
+
+                p2_idx = self.moves.index(p2_pos)
+                del self.moves[p2_idx]
+
+                # update board
+                self.board[p2_pos[0] - 1][p2_pos[1] - 1] = self.O
+                self.move_counter += 1
+
+                if self.check_winner() != False:
                     continue_play = False
 
                 for row in self.board:
                     print(row)
 
     def computer(self):
+        '''
+        This function will randomly generate moves for the computer to make
+        if the player chose option 1
+        '''
         if len(self.moves) > 0:
             return random.choice(self.moves)
-
-    def test(self):
-        for row in self.board:
-            print(row)
-        print(self.moves)
 
 def main():
     print(
         '''
         Welcome, you are now playing Tic Tac Toe.
-        ---------------------------------------------
+        -----------------------------------------------------------------
         Rules :
-
-        ---------------------------------------------
+            1) Each player takes turns one after the other
+            2) Moves can not be over written
+            3) A winner is determined when the entire row, column or
+               diagonal is covered with their corresponding symbol
+               'x' or 'o'
+        -----------------------------------------------------------------
         Game Options :
-
+            Option 1 :
+                Play against a computer
+            Option 2 :
+                Play against another player
 
         Good Luck
         '''
@@ -128,7 +205,6 @@ def main():
             check_input = True
 
     T = TicTacToe(game_option = game_op, board_size = board_sz)
-    T.test()
     T.play()
 
 if __name__ == '__main__':
