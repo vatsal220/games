@@ -3,6 +3,20 @@ import random
 
 class TicTacToe():
     def __init__(self, game_option, board_size):
+        '''
+        This class will create the tic tac toe game in terminal for the users to play.
+
+        params:
+            game_option (Integer) : 1 if you want to play with a computer, 2 if you
+                                    want to play with a friend
+            board_size (Integer)  : A value between 3 and 7 corresponding to the size
+                                    of the matrix you will play on
+
+        example:
+            T = TicTacToe(game_option = 1, board_size = 3)
+            T.play()
+        '''
+        
         self.game_option = game_option
         self.board_size = board_size
 
