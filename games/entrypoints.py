@@ -44,3 +44,51 @@ def tictactoe_game():
 
     T = TicTacToe(game_option = game_op, board_size = board_sz)
     T.play()
+
+
+def rps_game():
+    print(
+        '''
+        Welcome, you are now playing Rock Paper Scissors.
+        -----------------------------------------------------------------
+        Rules :
+            - Each player takes turns one after the other
+            - Each player has an option of playing Rock, Paper or Scissors
+            - Rock beats Scissors
+            - Paper beats Rock
+            - Scissors beats Paper
+            - If both players choose the same move then it is a draw
+            - The player with the most wins wins the game.
+        -----------------------------------------------------------------
+        Game Options :
+            Option 1 :
+                Play against a computer
+            Option 2 :
+                Play against another player
+
+        Good Luck
+        '''
+        )
+
+    check_input = True
+    while check_input:
+        try:
+            game_op = int(input("Please specify game option 1 or 2: "))
+            if (game_op == 1) | (game_op == 2):
+                check_input = False
+        except ValueError:
+            print("Please make sure the value you enter is an integer corresponding to one of the options specified")
+            check_input = True
+
+    check_input = True
+    while check_input:
+        try:
+            n_rounds = int(input("Please specify the number of rounds you want to play (odd int): "))
+            if (n_rounds > 0) & (n_rounds % 2 != 0):
+                check_input = False
+        except ValueError:
+            print("Please make sure the value you enter is an positive odd integer: ")
+            check_input = True
+
+    rps = RockPaperScissors(game_option = game_op, rounds = n_rounds)
+    rps.play()

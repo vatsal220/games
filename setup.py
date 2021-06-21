@@ -15,12 +15,14 @@ setup(
     packages = find_packages(),
     entry_points = {
         'console_scripts' : [
-            'tictactoe = games.entrypoints:tictactoe_game'
+            'tictactoe = games.entrypoints:tictactoe_game',
+            'rps = games.entrypoints:rps_game'
         ]
     },
     package_data = {
         'games' : [
-            './tictactoe/*'
+            './tictactoe/*',
+            './rockpaperscizors/*'
         ]
     },
     include_package_data = True,
