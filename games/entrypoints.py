@@ -1,6 +1,10 @@
 from games import *
 
 def tictactoe_game():
+    '''
+    This function will run the tic tac toe game from the TicTacToe class.
+    '''
+
     print(
         '''
         Welcome, you are now playing Tic Tac Toe.
@@ -47,6 +51,11 @@ def tictactoe_game():
 
 
 def rps_game():
+    '''
+    This function will run the rock paper scissors game from the
+    RockPaperScissors class.
+    '''
+
     print(
         '''
         Welcome, you are now playing Rock Paper Scissors.

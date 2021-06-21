@@ -2,12 +2,29 @@ import random
 
 class RockPaperScissors():
     def __init__(self, game_option, rounds):
+        '''
+        This class initiates the Rock Paper Scissors game between a user and a computer
+        or between two users based on the input parameters specified.
+
+        params:
+            game_option (Integer) : 1 if you want to verse a computer, 2 if you want to
+                                    verse another player
+            rounds (Integer) : An positive odd integer
+
+        example:
+            rps = RockPaperScissors(game_option = 1, rounds = 5)
+            rps.play()
+        '''
         self.game_option = game_option
         self.max_rounds = rounds
         self.max_wins = self.max_rounds // 2 + 1
         self.moves = ["rock", "paper", "scissors"]
 
     def play(self):
+        '''
+        This function will play the Rock Paper Scissors game with a user versus
+        a computer or a user versus another user
+        '''
 
         p1_rounds_won = 0
         p2_rounds_won = 0
@@ -42,6 +59,18 @@ class RockPaperScissors():
         return
 
     def winner(self, move1, move2):
+        '''
+        This function will identify the winner associated to a game of
+        rock paper scissors being played.
+
+        params:
+            move1 (String) : rock / paper / scissors
+            move2 (String) : rock / paper / scissors
+
+        returns:
+            It will return the winning move or draw if both moves are
+            the same
+        '''
         m1 = 'Player 1'
         m2 = 'Player 2'
         if move1 == move2:
@@ -70,4 +99,8 @@ class RockPaperScissors():
                 return move2
 
     def computer(self):
+        '''
+        This function will randomly generate moves for the computer to make
+        if the player chose option 1
+        '''
         return random.choice(self.moves)
