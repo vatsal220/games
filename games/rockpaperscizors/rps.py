@@ -31,14 +31,25 @@ class RockPaperScissors():
 
         continue_play = True
         while continue_play:
-
-            user_move = input("Enter a choice (rock, paper, scissors): ")
+            valid_move = True
+            while valid_move:
+                user_move = input("Enter a choice (rock, paper, scissors): ")
+                if user_move.lower().rstrip().lstrip() in self.moves:
+                    valid_move = False
+                else:
+                    print("Please enter a valid move.")
             if self.game_option == 1:
                 # play against computer
                 p2_move = self.computer()
             else:
                 # play against user
-                p2_move = input("Enter a choice (rock, paper, scissors): ")
+                valid_move = True
+                while valid_move:
+                    p2_move = input("Enter a choice (rock, paper, scissors): ")
+                    if p2_move.lower().rstrip().lstrip() in self.moves:
+                        valid_move = False
+                    else:
+                        print("Please enter a valid move.")
             # self.round += 1
             outcome = self.winner(user_move, p2_move)
             if outcome == 'draw':
