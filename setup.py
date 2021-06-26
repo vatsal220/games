@@ -16,13 +16,17 @@ setup(
     entry_points = {
         'console_scripts' : [
             'tictactoe = games.entrypoints:tictactoe_game',
-            'rps = games.entrypoints:rps_game'
+            'rps = games.entrypoints:rps_game',
+            'connect4 = games.entrypoints:connect4_game'
         ]
     },
     package_data = {
         'games' : [
             './tictactoe/*',
-            './rockpaperscizors/*'
+            './rockpaperscizors/*',
+            './connect4/*',
+            './sudoku/*',
+            './snake/*'
         ]
     },
     include_package_data = True,

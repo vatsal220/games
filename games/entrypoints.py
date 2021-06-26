@@ -101,3 +101,6 @@ def rps_game():
 
     rps = RockPaperScissors(game_option = game_op, rounds = n_rounds)
     rps.play()
+
+def connect4_game():
+    ConnectFour().run()
