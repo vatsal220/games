@@ -1,7 +1,7 @@
 from itertools import product
 import os
 import time
-import numpy as np 
+import numpy as np
 
 TERMX, TERMY = os.get_terminal_size()
 DEFAULT_HEIGHT = 6
@@ -32,7 +32,8 @@ class ConnectFour():
         self.checkers_in_column = [0] * self.width
 
     def print_board(self):
-        """Print our current board state.
+        """
+        Print our current board state.
         """
         os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -44,7 +45,8 @@ class ConnectFour():
         print_lines(header, *gutter, footer)
 
     def is_move_valid(self):
-        """Returns True if self.current_move is a valid move or 'q'.
+        """
+        Returns True if self.current_move is a valid move or 'q'.
         """
         if self.current_move is None:
             return False
@@ -70,7 +72,8 @@ class ConnectFour():
         self.current_move = input("".center(TERMX // 2)).lower()
 
     def animate_move(self):
-        """Animate a checker falling into place.
+        """
+        Animate a checker falling into place.
         """
         for row in range(self.height - self.checkers_in_column[self.current_move] - 1):
             self.board[row, self.current_move] = self.current_player + 1
@@ -79,14 +82,16 @@ class ConnectFour():
             time.sleep(ANIMATION_DELAY)
 
     def update_board(self):
-        """Add a checker to the board.
+        """
+        Add a checker to the board.
         """
         column = self.current_move
         self.checkers_in_column[column] += 1
         self.board[self.height - self.checkers_in_column[column], column] = self.current_player + 1
 
     def is_connect_four(self):
-        """Returns True if a player has won.
+        """
+        Returns True if a player has won.
         """
         # Location of our last checker
         row, column = self.height - self.checkers_in_column[self.current_move], self.current_move
