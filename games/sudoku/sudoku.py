@@ -8,7 +8,10 @@ class Sudoku():
     def generate_board(self):
         pass
 
-    def generate_solution(self):
+    def solver(self):
+        '''
+        This function will solve the sudoku board upon request
+        '''
         pass
 
     def remove_elements(self):
