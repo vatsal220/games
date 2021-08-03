@@ -18,4 +18,13 @@ rps
 
 # Play Tic Tac Toe
 tictactoe
+
+# Play Connect 4
+connect4
+
+# Play Sudoku
+sudoku
+
+# Play Snake
+snake
 ```
