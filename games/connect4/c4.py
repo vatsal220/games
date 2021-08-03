@@ -9,7 +9,8 @@ DEFAULT_WIDTH = 7
 ANIMATION_DELAY = .1
 
 def print_lines(*lines):
-    """Print `lines` centered in terminal.
+    """
+    Print `lines` centered in terminal.
     """
     for line in lines:
         print(line.center(TERMX))
