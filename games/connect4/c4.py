@@ -73,7 +73,7 @@ class ConnectFour():
         self.current_move = input("".center(TERMX // 2)).lower()
 
     def animate_move(self):
-        """
+        """ 
         Animate a checker falling into place.
         """
         for row in range(self.height - self.checkers_in_column[self.current_move] - 1):
