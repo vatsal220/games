@@ -73,7 +73,7 @@ class ConnectFour():
         self.current_move = input("".center(TERMX // 2)).lower()
 
     def animate_move(self):
-        """ 
+        """
         Animate a checker falling into place.
         """
         for row in range(self.height - self.checkers_in_column[self.current_move] - 1):
@@ -147,6 +147,11 @@ class ConnectFour():
         return False
 
     def run(self):
+        '''
+        This function will allow the user to play the game. It will execute valid moves and
+        be aware if the user wants to quit playing the game through pressing the 'q' button.
+        '''
+
         for _ in range(self.width * self.height):
             self.current_move = None
 
