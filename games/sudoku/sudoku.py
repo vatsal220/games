@@ -1,6 +1,13 @@
 import numpy as np
 import random
 
+def print_lines(*lines):
+    """
+    Print `lines` centered in terminal.
+    """
+    for line in lines:
+        print(line.center(TERMX))
+
 class Sudoku():
     def __init__(self, grid_size):
         self.grid_size = grid_size
