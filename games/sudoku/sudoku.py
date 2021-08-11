@@ -6,7 +6,7 @@ def print_lines(*lines):
     Print `lines` centered in terminal.
     """
     for line in lines:
-        print(line.center(TERMX)) 
+        print(line.center(TERMX))  
 
 class Sudoku():
     def __init__(self, grid_size):
