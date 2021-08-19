@@ -13,6 +13,11 @@ class Sudoku():
         self.grid_size = grid_size
 
     def generate_board(self):
+        """
+        Print our current board state.
+        """
+        os.system('cls' if os.name == 'nt' else 'clear')
+
         pass
 
     def solver(self):
@@ -21,7 +26,7 @@ class Sudoku():
         '''
         pass
 
-    def remove_elements(self): 
+    def remove_elements(self):
         pass
 
     def is_valid_solution(self):
