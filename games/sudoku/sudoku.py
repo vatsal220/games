@@ -17,7 +17,7 @@ class Sudoku():
         Print our current board state.
         """
         os.system('cls' if os.name == 'nt' else 'clear')
-    
+     
         pass
 
     def solver(self):
