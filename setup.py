@@ -17,7 +17,8 @@ setup(
         'console_scripts' : [
             'tictactoe = games.entrypoints:tictactoe_game',
             'rps = games.entrypoints:rps_game',
-            'connect4 = games.entrypoints:connect4_game'
+            'connect4 = games.entrypoints:connect4_game',
+            'ms = games.entrypoints:ms_game'
         ]
     },
     package_data = {
