@@ -104,3 +104,6 @@ def rps_game():
 
 def connect4_game():
     ConnectFour().run()
+
+def ms_game():
+    MineSweeper().run()
