@@ -107,3 +107,6 @@ def connect4_game():
 
 def ms_game():
     MineSweeper().run()
+
+def typing_test_game():
+    wrapper(main)
