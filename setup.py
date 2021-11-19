@@ -18,7 +18,8 @@ setup(
             'tictactoe = games.entrypoints:tictactoe_game',
             'rps = games.entrypoints:rps_game',
             'connect4 = games.entrypoints:connect4_game',
-            'ms = games.entrypoints:ms_game'
+            'ms = games.entrypoints:ms_game',
+            'type = games.entrypoints:typing_test_game'
         ]
     },
     package_data = {
@@ -27,7 +28,8 @@ setup(
             './rockpaperscizors/*',
             './connect4/*',
             './sudoku/*',
-            './snake/*'
+            './snake/*',
+            './typing_test/*'
         ]
     },
     include_package_data = True,
