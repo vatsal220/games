@@ -1,5 +1,7 @@
 import random
 import numpy as np
+import curses
+from curses import wrapper
 
 class Snake():
     def __init__(self, grid_size):
