@@ -8,6 +8,9 @@ class Snake():
     def generate_map(self):
         pass
 
+    def move_user(self):
+        pass
+
     def play(self):
         pass
 
