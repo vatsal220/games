@@ -5,6 +5,9 @@ class Snake():
     def __init__(self, grid_size):
         self.grid_size = grid_size
 
+    def generate_map(self):
+        pass
+
     def play(self):
         pass
 
