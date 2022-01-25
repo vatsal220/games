@@ -1,4 +1,7 @@
-## Installation
+.. _contents:
+
+Installation
+============
 ```console
 # Clone the repository
 git clone https://github.com/vatsal220/games.git
@@ -7,7 +10,8 @@ git clone https://github.com/vatsal220/games.git
 pip3 install .
 ```
 
-## Usage
+Usage
+=====
 ```console
 # Play Rock Paper Scissors
 rps
